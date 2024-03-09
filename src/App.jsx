@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import MyPage from "./pages/MyPage";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
+import DetailPage from "./pages/DetailPage";
 
 function App() {
   const Layout = () => {
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/detail-page" element={<DetailPage />} />
             <Route path="/my-page" element={<MyPage />} />
           </Route>
         </Routes>

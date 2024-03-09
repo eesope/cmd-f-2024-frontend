@@ -1,27 +1,60 @@
-import { useState } from "react";
+import Card from "../components/home/Card";
+import businessImage from "../images/Business.png";
 
 function Home() {
-  const [count, setCount] = useState(0);
+  // const subject = [
+  //   {
+  //     title: "Business & Management",
+  //     imgPath: "./images/Business.png",
+  //   },
+  //   {
+  //     title: "Computer Science",
+  //     imgPath: "./images/Business.png",
+  //   },
+  //   {
+  //     title: "Data Analytics & Science",
+  //     imgPath: "./images/Business.png",
+  //   },
+  //   {
+  //     title: "Mathematics&Statistics",
+  //     imgPath: "./images/Business.png",
+  //   },
+  //   {
+  //     title: "Arts & Humanities",
+  //     imgPath: "./images/Business.png",
+  //   },
+  //   {
+  //     title: "Social Science",
+  //     imgPath: "./images/Business.png",
+  //   },
+  //   {
+  //     title: "Language & Literature",
+  //     imgPath: "./images/Business.png",
+  //   },
+  //   {
+  //     title: "Self Help / Personal Development",
+  //     imgPath: "./images/Business.png",
+  //   },
+  //   {
+  //     title: "Engineering",
+  //     imgPath: "./images/Business.png",
+  //   },
+  // ];
+
   return (
-    <>
-      <h1>home page</h1>
-      <div>
-        <a href="https://vitejs.dev" target="_blank"></a>
-        <a href="https://react.dev" target="_blank"></a>
+    <div className="pt-20 px-10">
+      <div className="flex flex-wrap gap-2 justify-center py-20">
+        <Card title={"Business & Management"} imgPath={businessImage} />
+        <Card title={"Business & Management"} imgPath={businessImage} />
+        <Card title={"Business & Management"} imgPath={businessImage} />
+        <Card title={"Business & Management"} imgPath={businessImage} />
+        <Card title={"Business & Management"} imgPath={businessImage} />
+        <Card title={"Business & Management"} imgPath={businessImage} />
+        <Card title={"Business & Management"} imgPath={businessImage} />
+        <Card title={"Business & Management"} imgPath={businessImage} />
+        <Card title={"Business & Management"} imgPath={businessImage} />
       </div>
-      <h1 className="text-red-500">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   );
 }
 

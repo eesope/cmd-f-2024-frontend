@@ -2,8 +2,11 @@ import { useState } from "react";
 
 function MyPage() {
   const [count, setCount] = useState(0);
+
+ 
+
   return (
-    <>
+    <div className="pt-20 px-10">
       <h1>My page</h1>
       <div>
         <a href="https://vitejs.dev" target="_blank"></a>
@@ -20,7 +23,7 @@ function MyPage() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </div>
   );
 }
 
