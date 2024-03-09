@@ -1,8 +1,18 @@
 function Header() {
   return (
-    <>
-      <h1>Header</h1>
-    </>
+    <div className="flex justify-between items-center h-20 fixed w-full px-10">
+      <h1 className="text-2xl">Gnosis</h1>
+      <nav>
+        <ul className="flex gap-6">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/my-page">Account</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   );
 }
 
