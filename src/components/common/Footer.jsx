@@ -1,8 +1,8 @@
 function Footer() {
   return (
-    <>
-      <h1>Footer</h1>
-    </>
+    <div className="bg-yellow-300 px-10 py-8  w-full text-center ">
+      hello
+    </div>
   );
 }
 
