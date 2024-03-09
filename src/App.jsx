@@ -1,4 +1,9 @@
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+
+import { db } from './firebase';
+import { useEffect, useState } from 'react';
+import { doc, getDoc } from 'firebase/firestore';
+
 import Home from "./pages/Home";
 import MyPage from "./pages/MyPage";
 import Header from "./components/common/Header";

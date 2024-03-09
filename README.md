@@ -4,7 +4,10 @@
 
 ```bash
 npm install
+npm install firebase
 ```
+
+1-2. Add configuration information to firebase_config.js
 
 2. Run below
 
