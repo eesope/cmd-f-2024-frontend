@@ -1,6 +1,5 @@
 import Card from "../components/home/Card";
 import React, { useEffect, useState } from "react";
-import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
