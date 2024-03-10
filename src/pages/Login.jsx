@@ -43,7 +43,6 @@ function Login() {
                     </header>
                     <h6> 
                         Ready to start studying?
-                        <p>Please sign-in:</p>
                         <StyledFirebasedAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
                     </h6>
                 </div>
@@ -51,10 +50,19 @@ function Login() {
         );
     }
     return (
-        <div>
-            <p> Welcome! {firebase.auth().currentUser.displayName}! You are now ready to study!</p>
-            <a onClick={() => firebase.auth().signOut()}>Sign out</a>
-        </div>
+        <div className="pt-20 px-10">
+                <div>
+                    <header>
+                        <h1>
+                            <p> Welcome! {firebase.auth().currentUser.displayName}! You are now ready to study!</p>
+                        </h1>
+                    </header>
+                    <h6> 
+                        Sign out?
+                        <a onClick={() => firebase.auth().signOut()}>Sign out</a>
+                    </h6>
+                </div>
+            </div>
     );
     
 }
