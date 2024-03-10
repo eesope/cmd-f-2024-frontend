@@ -1,6 +1,6 @@
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 
-import { db } from "./firebase";
+//import { db } from "./firebase";
 import { useEffect, useState } from "react";
 // import { doc, getDoc } from 'firebase/firestore';
 
