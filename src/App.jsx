@@ -1,14 +1,17 @@
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 
-import { db } from './firebase';
-import { useEffect, useState } from 'react';
-import { doc, getDoc } from 'firebase/firestore';
+import { db } from "./firebase";
+import { useEffect, useState } from "react";
+// import { doc, getDoc } from 'firebase/firestore';
 
 import Home from "./pages/Home";
 import MyPage from "./pages/MyPage";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import DetailPage from "./pages/DetailPage";
+import Profile from "./pages/Profile";
+import Curriculum from "./pages/Curriculum";
+import Calendar from "./pages/Calendar";
 
 function App() {
   const Layout = () => {
@@ -28,6 +31,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/detail-page" element={<DetailPage />} />
             <Route path="/my-page" element={<MyPage />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/curriculum" element={<Curriculum />} />
+            <Route path="/calendar" element={<Calendar />} />
           </Route>
         </Routes>
       </BrowserRouter>
