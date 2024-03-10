@@ -12,6 +12,7 @@ function Curriculum() {
   const [endDate, setEndDate] = useState("");
   const [status, setStatus] = useState("");
   const [formDataArray, setFormDataArray] = useState([]);
+  const [editingIndex, setEditingIndex] = useState(null);
 
   const closeModal = () => {
     setIsOpen(false);
@@ -33,18 +34,33 @@ function Curriculum() {
       status,
     };
 
-    // Attempt to retrieve existing data from local storage
-    const existingData = localStorage.getItem("formData");
-    let formDataArray = existingData ? JSON.parse(existingData) : [];
+    // // Attempt to retrieve existing data from local storage
+    // const existingData = localStorage.getItem("formData");
+    // let formDataArray = existingData ? JSON.parse(existingData) : [];
 
-    // Add the current form's data to the array
-    formDataArray.unshift(currentFormData);
+    let formDataArray = localStorage.getItem("formData")
+      ? JSON.parse(localStorage.getItem("formData"))
+      : [];
 
-    // Save the updated array back to local storage
+    if (editingIndex !== null) {
+      // Editing mode: update the existing item
+      formDataArray[editingIndex] = currentFormData;
+      setEditingIndex(null); // Reset editing index
+    } else {
+      // Add mode: add a new item
+      formDataArray.unshift(currentFormData);
+    }
+
     localStorage.setItem("formData", JSON.stringify(formDataArray));
     setDataChangeTrigger((prev) => prev + 1);
 
     closeModal();
+
+    // // Save the updated array back to local storage
+    // localStorage.setItem("formData", JSON.stringify(formDataArray));
+    // setDataChangeTrigger((prev) => prev + 1);
+
+    // closeModal();
 
     setTitle("");
     setSubject("");
@@ -62,6 +78,17 @@ function Curriculum() {
     if (data) {
       setFormDataArray(JSON.parse(data));
     }
+  };
+
+  const openModalForEdit = (item, index) => {
+    setTitle(item.title);
+    setSubject(item.subject);
+    setUrl(item.url);
+    setStartDate(item.startDate);
+    setEndDate(item.endDate);
+    setStatus(item.status);
+    setEditingIndex(index); // Assume you've added a `setEditingIndex` for state `editingIndex`
+    setIsOpen(true);
   };
 
   useEffect(() => {
@@ -108,6 +135,7 @@ function Curriculum() {
                         startDate={item.startDate}
                         endDate={item.endDate}
                         status={item.status}
+                        handleEdit={() => openModalForEdit(item, index)}
                       />
                     ))}
                   </div>
@@ -306,7 +334,7 @@ function Curriculum() {
                           type="submit"
                           className="w-full justify-center rounded-md border border-transparent bg-yellow-100 px-4 py-2 text-sm font-medium text-yellow-900 hover:bg-yellow-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2"
                         >
-                          Add
+                          {editingIndex !== null ? "Complete Edit" : "Add"}
                         </button>
                       </div>
                     </form>

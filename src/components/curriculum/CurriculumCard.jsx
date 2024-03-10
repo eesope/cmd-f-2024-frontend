@@ -5,10 +5,10 @@ function CurriculumCard({
   startDate,
   endDate,
   status,
-  // handleEdit,
+  handleEdit,
 }) {
   return (
-    <div className="w-full rounded-lg p-4 shadow-md">
+    <div className="w-full rounded-lg p-6  shadow-md">
       <div className="text-gray-00 font-bold text-lg mb-2">{title}</div>
       <div className="text-yellow-500 mb-2">
         Subject:<span className="text-gray-500 pl-2">{subject}</span>
@@ -31,12 +31,12 @@ function CurriculumCard({
           Study Status: <span className="text-gray-500 pl-2">Ongoing</span>
         </div>
       )}
-      {/* <button
+      <button
         className="justify-center rounded-md border border-transparent bg-yellow-100 px-4 py-2 text-sm font-medium text-yellow-900 hover:bg-yellow-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2"
         onClick={handleEdit}
       >
         Edit
-      </button> */}
+      </button>
     </div>
   );
 }
