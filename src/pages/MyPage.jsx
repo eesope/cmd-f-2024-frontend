@@ -1,28 +1,25 @@
-import { useState } from "react";
-
 function MyPage() {
-  const [count, setCount] = useState(0);
-
- 
-
   return (
-    <div className="pt-20 px-10">
-      <h1>My page</h1>
-      <div>
-        <a href="https://vitejs.dev" target="_blank"></a>
+    <div className="pt-20 px-20">
+      <h1 className="text-2xl text-center">Account</h1>
+
+      <div className="p-10 flex flex-col gap-8">
+        <a href="/profile">
+          <div className="w-full text-center justify-center rounded-md border border-transparent bg-yellow-100 px-4 py-4 text-sm font-medium text-yellow-900 hover:bg-yellow-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2">
+            Profile
+          </div>
+        </a>
+        <a href="/curriculum">
+          <div className="w-full text-center justify-center rounded-md border border-transparent bg-yellow-100 px-4 py-4 text-sm font-medium text-yellow-900 hover:bg-yellow-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2">
+            Curriculum
+          </div>
+        </a>
+        <a href="/calendar">
+          <div className="w-full text-center justify-center rounded-md border border-transparent bg-yellow-100 px-4 py-4 text-sm font-medium text-yellow-900 hover:bg-yellow-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2">
+            Calendar
+          </div>
+        </a>
       </div>
-      <h1 className="text-red-500">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   );
 }
