@@ -70,6 +70,15 @@ function Curriculum() {
     setStatus("");
   };
 
+  const handleRemove = (indexToRemove) => {
+    const updatedFormDataArray = formDataArray.filter(
+      (_, index) => index !== indexToRemove
+    );
+    setFormDataArray(updatedFormDataArray); // Update state
+    localStorage.setItem("formData", JSON.stringify(updatedFormDataArray)); // Update localStorage
+    setDataChangeTrigger((prev) => prev + 1); // Trigger re-render if necessary
+  };
+
   const [dataChangeTrigger, setDataChangeTrigger] = useState(0);
 
   // Function to load data from local storage
@@ -136,6 +145,7 @@ function Curriculum() {
                         endDate={item.endDate}
                         status={item.status}
                         handleEdit={() => openModalForEdit(item, index)}
+                        handleRemove={() => handleRemove(index)}
                       />
                     ))}
                   </div>
@@ -155,6 +165,8 @@ function Curriculum() {
                           startDate={item.startDate}
                           endDate={item.endDate}
                           status={item.status}
+                          handleEdit={() => openModalForEdit(item, index)}
+                          handleRemove={() => handleRemove(index)}
                         />
                       ))}
                   </div>
@@ -173,6 +185,8 @@ function Curriculum() {
                           startDate={item.startDate}
                           endDate={item.endDate}
                           status={item.status}
+                          handleEdit={() => openModalForEdit(item, index)}
+                          handleRemove={() => handleRemove(index)}
                         />
                       ))}
                   </div>
