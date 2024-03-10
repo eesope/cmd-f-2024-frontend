@@ -19,11 +19,14 @@ function App() {
     return (
       <>
         <Header />
+
         <Outlet />
+
         <Footer />
       </>
     );
   };
+
   return (
     <>
       <BrowserRouter>

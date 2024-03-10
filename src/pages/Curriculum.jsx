@@ -43,25 +43,25 @@ function Curriculum() {
           <div className="flex relative justify-center">
             <h1 className="text-2xl">My Curriculum</h1>
           </div>
-          <div className="w-full space-1 px-2 py-6">
+          <div className="w-full space-1 px-2 py-10 ">
             <Tab.Group defaultIndex={0}>
               <Tab.List className="flex">
-                <Tab className="w-full rounded-lg py-2.5 text-sm md:text-lg font-medium leading-5 ring-white/60 ring-offset-2 ring-offset-yellow-400 focus:outline-none focus:bg-yellow-100">
+                <Tab className="w-full rounded-lg py-2.5 text-sm md:text-lg font-medium leading-5 ring-white/60 ring-offset-2 ring-offset-yellow-400 focus:outline-none focus:bg-yellow-100 border-t border-l border-r">
                   All
                 </Tab>
 
                 {/* Selects this tab by default */}
-                <Tab className="w-full rounded-lg py-2.5 text-sm md:text-lg font-medium leading-5 ring-white/60 ring-offset-2 ring-offset-yellow-400 focus:outline-none focus:bg-yellow-100">
+                <Tab className="w-full rounded-lg py-2.5 text-sm md:text-lg font-medium leading-5 ring-white/60 ring-offset-2 ring-offset-yellow-400 focus:outline-none focus:bg-yellow-100 border-t border-l border-r">
                   Ongoing
                 </Tab>
 
-                <Tab className="w-full rounded-lg py-2.5 text-sm md:text-lg font-medium leading-5 ring-white/60 ring-offset-2 ring-offset-yellow-400 focus:outline-none focus:bg-yellow-100">
+                <Tab className="w-full rounded-lg py-2.5 text-sm md:text-lg font-medium leading-5 ring-white/60 ring-offset-2 ring-offset-yellow-400 focus:outline-none focus:bg-yellow-100 border-t border-l border-r">
                   Completed
                 </Tab>
               </Tab.List>
               <Tab.Panels>
                 <Tab.Panel>
-                  <div className="my-10">
+                  <div className="my-10 mx-5">
                     <CurriculumCard
                       title={"Google Data Analytics Professional Certificate"}
                       subject={"Engineering"}
@@ -71,7 +71,7 @@ function Curriculum() {
 
                 {/* Displays this panel by default */}
                 <Tab.Panel>
-                  <div className="my-10">
+                  <div className="my-10 mx-5">
                     <CurriculumCard
                       title={"Google Data Analytics Professional Certificate"}
                       subject={"Engineering"}
@@ -80,7 +80,7 @@ function Curriculum() {
                 </Tab.Panel>
 
                 <Tab.Panel>
-                  <div className="my-10">
+                  <div className="my-10 mx-5">
                     <CurriculumCard
                       title={"Google Data Analytics Professional Certificate"}
                       subject={"Engineering"}

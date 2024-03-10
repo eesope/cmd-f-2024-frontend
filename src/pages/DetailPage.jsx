@@ -1,6 +1,5 @@
 import Card from "../components/home/Card";
-import React, { useEffect, useState } from "react";
-import firebase from "firebase/compat/app";
+import { useEffect, useState } from "react";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 
@@ -37,7 +36,7 @@ function DetailPage() {
   }
 
   return (
-    <div className="pt-20 px-10">
+    <div className="pt-20 px-10" style={{ minHeight: "calc(100vh - 64px)" }}>
       <div className="flex justify-center pt-20 ">
         <h2 className="text-2xl">Resource list</h2>
       </div>
