@@ -3,12 +3,7 @@ import StyledFirebasedAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 
-const config = {
-    apiKey: 'AIzaSyA_Dg0hVBRYId9LClt4l9QHlElJX23Qj0o',
-    authDomain: 'cmd-f-2024-gnosis.firebaseapp.com',
-    // ...
-  };
-  firebase.initializeApp(config);
+import { auth } from '../firebase'; // Import auth from firebase.js
 
 const uiConfig = {
     signInFlow: 'popup',
