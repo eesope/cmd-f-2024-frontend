@@ -6,6 +6,7 @@ function CurriculumCard({
   endDate,
   status,
   handleEdit,
+  handleRemove,
 }) {
   return (
     <div className="w-full rounded-lg p-6  shadow-md">
@@ -36,6 +37,12 @@ function CurriculumCard({
         onClick={handleEdit}
       >
         Edit
+      </button>
+      <button
+        className="justify-center ml-2 rounded-md border border-transparent bg-gray-100 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
+        onClick={handleRemove}
+      >
+        Remove
       </button>
     </div>
   );
