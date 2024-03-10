@@ -1,3 +1,4 @@
+// eslint-disable-next-line react/prop-types
 function Card({ title, imgPath, link }) {
   return (
     <a href={link}>
