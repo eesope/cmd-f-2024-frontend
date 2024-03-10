@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <div className="flex justify-between items-center h-20 fixed w-full px-10">
+    <div className="flex justify-between items-center h-20 fixed w-full px-10 bg-white shadow-sm">
       <h1 className="text-2xl">Gnosis</h1>
       <nav>
         <ul className="flex gap-6">
