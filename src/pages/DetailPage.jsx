@@ -1,8 +1,8 @@
 import Card from "../components/home/Card";
 import React, { useEffect, useState } from "react";
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
 
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase"; // Import firestore from firebase.js
@@ -38,12 +38,18 @@ function DetailPage() {
 
   return (
     <div className="pt-20 px-10">
-      <div className="">Resource list</div>
+      <div className="flex justify-center pt-20 ">
+        <h2 className="text-2xl">Resource list</h2>
+      </div>
 
-      <div className="flex flex-wrap gap-2 justify-center py-20">
+      <div className="grid md:grid-cols-2 gap-4 py-20 px-10">
         {resources.map((resource, index) => (
           <div key={index}>
-            <Card title={resource.siteName} imgPath={resource.logo} link={resource.url} />
+            <Card
+              title={resource.siteName}
+              imgPath={resource.logo}
+              link={resource.url}
+            />
           </div>
         ))}
       </div>
