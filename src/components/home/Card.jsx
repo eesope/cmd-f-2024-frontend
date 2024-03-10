@@ -1,7 +1,7 @@
-function Card({ title, imgPath , link}) {
+function Card({ title, imgPath, link }) {
   return (
     <a href={link}>
-      <div className="max-w-xs w-full flex rounded-lg shadow-xl overflow-hidden">
+      <div className="flex rounded-lg shadow-xl overflow-hidden grid-rows-{3}">
         <div className="w-24 h-24 flex-none rounded-r-lg rounded-l-lg">
           <img
             src={imgPath}
