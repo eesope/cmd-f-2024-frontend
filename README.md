@@ -136,3 +136,7 @@ Gnosis
 - Firebase: https://firebase.google.com/
 - Tailwind CSS: https://tailwindcss.com/
 - Headless UI: https://headlessui.com/
+
+## Demo
+
+[mockup](https://www.figma.com/file/OZLun97fHmAdQcCCNmEq9Q/Gnosis?type=design&node-id=0-1&mode=design&t=sNeliUZXrAPOASlF-0)
