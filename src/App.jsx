@@ -4,6 +4,8 @@ import { db } from "./firebase";
 import { useEffect, useState } from "react";
 // import { doc, getDoc } from 'firebase/firestore';
 
+
+
 import Home from "./pages/Home";
 import MyPage from "./pages/MyPage";
 import Header from "./components/common/Header";
@@ -12,6 +14,7 @@ import DetailPage from "./pages/DetailPage";
 import Profile from "./pages/Profile";
 import Curriculum from "./pages/Curriculum";
 import Calendar from "./pages/Calendar";
+import Login from "./pages/Login";
 
 function App() {
   const Layout = () => {
@@ -34,6 +37,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/curriculum" element={<Curriculum />} />
             <Route path="/calendar" element={<Calendar />} />
+            <Route path="/login" element={<Login />} />
           </Route>
         </Routes>
       </BrowserRouter>
