@@ -18,7 +18,7 @@ function Home() {
             <h2 className="text-2xl">
               Elevate Your Learning: Plan and Discover Courses!
             </h2>
-            <p>Create your own curriculum and calendar.</p>
+            <p className="pt-8">Create your own curriculum and calendar.</p>
           </div>
         </div>
         <img
@@ -71,7 +71,7 @@ function Home() {
             <h2 className="text-2xl">
               Elevate Your Learning: Plan and Discover Courses!
             </h2>
-            <p>Create your own curriculum and calendar.</p>
+            <p className="pt-8">Create your own curriculum and calendar.</p>
           </div>
         </div>
       </div>

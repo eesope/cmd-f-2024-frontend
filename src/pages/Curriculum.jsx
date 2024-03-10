@@ -1,7 +1,7 @@
 import robotImage from "../images/Robot.png";
 import { Dialog, Tab, Transition } from "@headlessui/react";
 import CurriculumCard from "../components/curriculum/CurriculumCard";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 function Curriculum() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +11,7 @@ function Curriculum() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [status, setStatus] = useState("");
+  const [formDataArray, setFormDataArray] = useState([]);
 
   const closeModal = () => {
     setIsOpen(false);
@@ -20,15 +21,52 @@ function Curriculum() {
     setIsOpen(true);
   };
 
-  const onSubmit = () => {
-    console.log(title);
-    console.log(subject);
-    console.log(url);
-    console.log(startDate);
-    console.log(endDate);
-    console.log(status);
-    // closeModal();
+  const onSubmit = (event) => {
+    event.preventDefault();
+    // Construct an object for the current form data
+    const currentFormData = {
+      title,
+      subject,
+      url,
+      startDate,
+      endDate,
+      status,
+    };
+
+    // Attempt to retrieve existing data from local storage
+    const existingData = localStorage.getItem("formData");
+    let formDataArray = existingData ? JSON.parse(existingData) : [];
+
+    // Add the current form's data to the array
+    formDataArray.unshift(currentFormData);
+
+    // Save the updated array back to local storage
+    localStorage.setItem("formData", JSON.stringify(formDataArray));
+    setDataChangeTrigger((prev) => prev + 1);
+
+    closeModal();
+
+    setTitle("");
+    setSubject("");
+    setUrl("");
+    setStartDate("");
+    setEndDate("");
+    setStatus("");
   };
+
+  const [dataChangeTrigger, setDataChangeTrigger] = useState(0);
+
+  // Function to load data from local storage
+  const loadDataFromLocalStorage = () => {
+    const data = localStorage.getItem("formData");
+    if (data) {
+      setFormDataArray(JSON.parse(data));
+    }
+  };
+
+  useEffect(() => {
+    loadDataFromLocalStorage();
+  }, [dataChangeTrigger]);
 
   return (
     <div className="pt-20">
@@ -50,7 +88,6 @@ function Curriculum() {
                   All
                 </Tab>
 
-                {/* Selects this tab by default */}
                 <Tab className="w-full rounded-lg py-2.5 text-sm md:text-lg font-medium leading-5 ring-white/60 ring-offset-2 ring-offset-yellow-400 focus:outline-none focus:bg-yellow-100 border-t border-l border-r">
                   Ongoing
                 </Tab>
@@ -61,30 +98,55 @@ function Curriculum() {
               </Tab.List>
               <Tab.Panels>
                 <Tab.Panel>
-                  <div className="my-10 mx-5">
-                    <CurriculumCard
-                      title={"Google Data Analytics Professional Certificate"}
-                      subject={"Engineering"}
-                    />
+                  <div className="my-10 mx-5 flex flex-col gap-4">
+                    {formDataArray.map((item, index) => (
+                      <CurriculumCard
+                        key={index}
+                        title={item.title}
+                        subject={item.subject}
+                        url={item.url}
+                        startDate={item.startDate}
+                        endDate={item.endDate}
+                        status={item.status}
+                      />
+                    ))}
                   </div>
                 </Tab.Panel>
 
                 {/* Displays this panel by default */}
                 <Tab.Panel>
                   <div className="my-10 mx-5">
-                    <CurriculumCard
-                      title={"Google Data Analytics Professional Certificate"}
-                      subject={"Engineering"}
-                    />
+                    {formDataArray
+                      .filter((item) => item.status === "false")
+                      .map((item, index) => (
+                        <CurriculumCard
+                          key={index}
+                          title={item.title}
+                          subject={item.subject}
+                          url={item.url}
+                          startDate={item.startDate}
+                          endDate={item.endDate}
+                          status={item.status}
+                        />
+                      ))}
                   </div>
                 </Tab.Panel>
 
                 <Tab.Panel>
                   <div className="my-10 mx-5">
-                    <CurriculumCard
-                      title={"Google Data Analytics Professional Certificate"}
-                      subject={"Engineering"}
-                    />
+                    {formDataArray
+                      .filter((item) => item.status === "true")
+                      .map((item, index) => (
+                        <CurriculumCard
+                          key={index}
+                          title={item.title}
+                          subject={item.subject}
+                          url={item.url}
+                          startDate={item.startDate}
+                          endDate={item.endDate}
+                          status={item.status}
+                        />
+                      ))}
                   </div>
                 </Tab.Panel>
               </Tab.Panels>
@@ -95,7 +157,7 @@ function Curriculum() {
               <button
                 type="button"
                 onClick={openModal}
-                className="rounded-md w-full bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 "
+                className="rounded-md w-full bg-black/60 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 "
               >
                 Add
               </button>
@@ -235,8 +297,8 @@ function Curriculum() {
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         >
                           <option value="">Choose study status</option>
-                          <option value="true">Ongoing</option>
-                          <option value="false">Completed</option>
+                          <option value="false">Ongoing</option>
+                          <option value="true">Completed</option>
                         </select>
                       </div>
                       <div className="mt-4">
