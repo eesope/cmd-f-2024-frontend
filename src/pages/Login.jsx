@@ -3,7 +3,7 @@ import StyledFirebasedAuth from "react-firebaseui/StyledFirebaseAuth";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 // import { auth } from "../firebase"; // Import auth from firebase.js
-import { HiCalendar, HiPencilAlt } from "react-icons/hi";
+import { HiPencilAlt } from "react-icons/hi";
 import { HiMiniArrowTopRightOnSquare } from "react-icons/hi2";
 
 const uiConfig = {
@@ -64,12 +64,12 @@ function Login() {
             <span>Curriculum</span>
           </div>
         </a>
-        <a href="/calendar">
+        {/* <a href="/calendar">
           <div className="w-full flex items-center justify-center rounded-md border border-transparent bg-yellow-100 px-4 py-4 text-sm font-medium text-yellow-900 hover:bg-yellow-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2">
             <HiCalendar className="w-6 h-6" />
             <span>Calendar</span>
           </div>
-        </a>
+        </a> */}
         <a onClick={() => firebase.auth().signOut()}>
           <div className="w-full flex items-center justify-center rounded-md border border-transparent bg-yellow-100 px-4 py-4 text-sm font-medium text-yellow-900 hover:bg-yellow-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2">
             <HiMiniArrowTopRightOnSquare className="w-6 h-6" />
